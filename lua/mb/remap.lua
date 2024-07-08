@@ -36,14 +36,14 @@ keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Open explorer on the left (:Lex)
-keymap('n', '<leader>pv', vim.cmd.Lex)
+-- Open project explorer
+keymap('n', '<leader>pv', vim.cmd.Ex)
 
 -- Resize with arrows
-keymap('n', '<C-Up>', ':resize -2<CR>')
-keymap('n', '<C-Down>', ':resize +2<CR>')
-keymap('n', '<C-Left>', ':vertical resize -2<CR>')
-keymap('n', '<C-Right>', ':vertical resize +2<CR>')
+keymap('n', '<C-Up>', ':resize -2<CR>', { silent = true })
+keymap('n', '<C-Down>', ':resize +2<CR>', { silent = true })
+keymap('n', '<C-Left>', ':vertical resize -2<CR>', { silent = true })
+keymap('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true })
 
 -- Navigate buffers
 keymap('n', '<S-l>', ':bnext<CR>zz')
