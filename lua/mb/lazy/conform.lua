@@ -3,7 +3,7 @@ return {
   {
     'stevearc/conform.nvim',
     lazy = false,
-      log_level = vim.log.levels.DEBUG,
+    log_level = vim.log.levels.DEBUG,
     keys = {
       {
         '<leader>f',
@@ -37,6 +37,4 @@ return {
       },
     },
   },
-} 
-
-
+}
