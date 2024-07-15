@@ -57,6 +57,8 @@ keymap('n', '<A-k>', ':m .-2<CR>==')
 keymap('n', '<C-d>', '<C-d>zz')
 keymap('n', '<C-u>', '<C-u>zz')
 keymap('n', 'G', 'Gzz')
+keymap('n', '<C-o>', '<C-o>zz')
+keymap('n', '<C-i>', '<C-i>zz')
 
 -- NOTE: Insert mode
 
