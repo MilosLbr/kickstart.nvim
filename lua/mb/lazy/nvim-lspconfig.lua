@@ -168,7 +168,14 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-
+        csharp_ls = {},
+        css_variables = {},
+        angularls = {},
+        tsserver = {},
+        eslint = {},
+        cssmodules_ls = {},
+        html = {},
+        cssls = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
