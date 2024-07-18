@@ -76,3 +76,16 @@ vim.opt.textwidth = 120
 
 -- More height in the neovim command line for displaying messages
 vim.opt.cmdheight = 4
+
+-- Set tab width in spaces and number of spacef for autoindent
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+
+-- Ensure that visual block mode behaves like a box
+vim.opt.virtualedit = 'block'
+
+-- Show effects of :substitute command in a preview window
+vim.opt.inccommand = 'split'
+
+-- Case insensitive searching
+vim.opt.ignorecase = true
