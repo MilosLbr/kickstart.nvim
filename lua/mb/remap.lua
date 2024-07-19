@@ -86,3 +86,17 @@ keymap('x', 'K', ":m '<-2<CR>gv=gv")
 keymap('x', 'J', ":m '>+1<CR>gv=gv")
 keymap('x', '<A-j>', ":m '>+1<CR>gv=gv")
 keymap('x', '<A-k>', ":m '<-2<CR>gv=gv")
+
+-- Close unchanged buffers
+function _G.CloseUnchangedBuffers()
+  local currentBuf = vim.api.nvim_get_current_buf()
+  local allBuffers = vim.api.nvim_list_bufs()
+
+  for _, buffer in ipairs(allBuffers) do
+    if vim.api.nvim_buf_is_loaded(buffer) and not vim.bo[buffer].modified and buffer ~= currentBuf then
+      vim.api.nvim_buf_delete(buffer, {})
+    end
+  end
+end
+
+keymap('n', '<leader>cu', ':lua CloseUnchangedBuffers()<CR>', { desc = 'Close unchanged buffers' })
