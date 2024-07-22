@@ -146,6 +146,8 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      local util = require 'lspconfig.util'
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -168,14 +170,34 @@ return {
         -- But for many setups, the LSP (`tsserver`) will work just fine
         -- tsserver = {},
         --
-        csharp_ls = {},
-        css_variables = {},
-        angularls = {},
-        tsserver = {},
-        eslint = {},
-        cssmodules_ls = {},
-        html = {},
-        cssls = {},
+        csharp_ls = {
+          root_dir = util.root_pattern '*.sln',
+        },
+        css_variables = {
+          root_dir = util.find_git_ancestor,
+        },
+        angularls = {
+          root_dir = util.find_git_ancestor,
+        },
+        tsserver = {
+          root_dir = util.find_git_ancestor,
+        },
+        eslint = {
+          root_dir = util.find_git_ancestor,
+
+          on_init = function(client)
+            client.config.settings.workingDirectory = { directory = client.config.root_dir }
+          end,
+        },
+        cssmodules_ls = {
+          root_dir = util.find_git_ancestor,
+        },
+        html = {
+          root_dir = util.find_git_ancestor,
+        },
+        cssls = {
+          root_dir = util.find_git_ancestor,
+        },
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
