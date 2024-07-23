@@ -71,8 +71,12 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- Maximum column width
+-- Column widht and tab/space settings
 vim.opt.textwidth = 120
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
 
 -- More height in the neovim command line for displaying messages
 vim.opt.cmdheight = 4
