@@ -62,7 +62,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- },
       -- pickers = {}
       defaults = {
-        path_display = { 'smart' },
+        path_display = { 'tail', 'smart' },
       },
       extensions = {
         ['ui-select'] = {
