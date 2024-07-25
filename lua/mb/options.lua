@@ -93,3 +93,14 @@ vim.opt.inccommand = 'split'
 
 -- Case insensitive searching
 vim.opt.ignorecase = true
+
+-- Autoreload file that is changed outside of Neovim
+vim.opt.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter' }, {
+  pattern = '*',
+  callback = function()
+    if vim.fn.mode() == 'n' then
+      vim.api.nvim_command ':checktime'
+    end
+  end,
+})
