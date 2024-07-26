@@ -33,16 +33,23 @@ return {
       --  nvim-cmp does not ship with all sources by default. They are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
+      'ray-x/lsp_signature.nvim',
     },
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
+      local lspSignature = require 'lsp_signature'
       luasnip.config.setup {}
+      lspSignature.setup {
+        select_signature_key = '<M-o>',
+        toggle_key = '<M-q>',
+        max_width = 120,
+        max_height = 20,
+      }
 
       cmp.setup {
         snippet = {
@@ -106,7 +113,6 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'nvim_lsp_signature_help' },
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'buffer' },
