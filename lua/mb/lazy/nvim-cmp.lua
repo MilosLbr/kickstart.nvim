@@ -49,6 +49,7 @@ return {
         toggle_key = '<M-q>',
         max_width = 120,
         max_height = 20,
+        hint_enable = false,
       }
 
       cmp.setup {

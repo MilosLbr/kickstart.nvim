@@ -82,9 +82,6 @@ vim.opt.softtabstop = 4
 vim.opt.linebreak = true
 vim.opt.wrap = true
 
--- Hide fold column
-vim.opt.foldcolumn = '0'
-
 -- More height in the neovim command line for displaying messages
 vim.opt.cmdheight = 4
 
