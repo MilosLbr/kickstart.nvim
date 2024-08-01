@@ -62,6 +62,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- },
       -- pickers = {}
       defaults = {
+        file_ignore_patterns = { 'node_modules' },
         path_display = { 'tail', 'smart' },
       },
       extensions = {
