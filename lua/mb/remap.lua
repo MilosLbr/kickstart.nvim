@@ -45,10 +45,7 @@ keymap('n', '<C-Right>', ':vertical resize +2<CR>', { silent = true })
 -- Navigate buffers
 keymap('n', '<S-l>', ':bnext<CR>zz')
 keymap('n', '<S-h>', ':bprevious<CR>zz')
-
--- Move text up and down
-keymap('n', '<A-j>', ':m .+1<CR>==')
-keymap('n', '<A-k>', ':m .-2<CR>==')
+keymap('n', '<A-0>', '<C-^>zz')
 
 -- Center the view when navigating
 keymap('n', '<C-d>', '<C-d>zz')
@@ -70,8 +67,8 @@ keymap('v', '<', '<gv^')
 keymap('v', '>', '>gv^')
 
 -- Move text up and down
-keymap('v', '<A-j>', ":m '>+1<CR>gv=gv")
-keymap('v', '<A-k>', ":m '<-2<CR>gv=gv")
+keymap('n', '<A-j>', ':m .+1<CR>==')
+keymap('n', '<A-k>', ':m .-2<CR>==')
 
 -- Keep copied text after pasting instead of replacing the paste registry
 keymap('v', 'p', '"_dP')

@@ -45,8 +45,8 @@ return {
       local lspSignature = require 'lsp_signature'
       luasnip.config.setup {}
       lspSignature.setup {
-        select_signature_key = '<M-o>',
-        toggle_key = '<M-q>',
+        select_signature_key = '<A-o>',
+        toggle_key = '<A-q>',
         max_width = 120,
         max_height = 20,
         hint_enable = false,
@@ -88,7 +88,7 @@ return {
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
-          -- ['<C-Space>'] = cmp.mapping.complete {},
+          ['<C-Space>'] = cmp.mapping.complete {},
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
