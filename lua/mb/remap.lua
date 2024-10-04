@@ -10,6 +10,18 @@ keymap('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- Diagnostic keymaps
 keymap('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 keymap('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
+keymap(
+  'n',
+  ']e',
+  ':lua vim.diagnostic.goto_next ({ severity = vim.diagnostic.severity.ERROR }) <CR>',
+  { desc = 'Go to next [D]iagnostic message' }
+)
+keymap(
+  'n',
+  '[e',
+  ':lua vim.diagnostic.goto_prev ({ severity = vim.diagnostic.severity.ERROR }) <CR>',
+  { desc = 'Go to previous [D]iagnostic message' }
+)
 keymap('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 keymap('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
@@ -53,6 +65,8 @@ keymap('n', '<C-u>', '<C-u>zz')
 keymap('n', 'G', 'Gzz')
 keymap('n', '<C-o>', '<C-o>zz')
 keymap('n', '<C-i>', '<C-i>zz')
+keymap('n', '{', '{zz')
+keymap('n', '}', '}zz')
 
 -- NOTE: Insert mode
 
@@ -80,17 +94,3 @@ keymap('x', 'K', ":m '<-2<CR>gv=gv")
 keymap('x', 'J', ":m '>+1<CR>gv=gv")
 keymap('x', '<A-j>', ":m '>+1<CR>gv=gv")
 keymap('x', '<A-k>', ":m '<-2<CR>gv=gv")
-
--- Close unchanged buffers
-function _G.CloseUnchangedBuffers()
-  local currentBuf = vim.api.nvim_get_current_buf()
-  local allBuffers = vim.api.nvim_list_bufs()
-
-  for _, buffer in ipairs(allBuffers) do
-    if vim.api.nvim_buf_is_loaded(buffer) and not vim.bo[buffer].modified and buffer ~= currentBuf then
-      vim.api.nvim_buf_delete(buffer, {})
-    end
-  end
-end
-
-keymap('n', '<leader>cu', ':lua CloseUnchangedBuffers()<CR>', { desc = 'Close unchanged buffers' })

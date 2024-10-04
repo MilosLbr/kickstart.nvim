@@ -11,7 +11,6 @@ return {
   config = function()
     -- Open project explorer
     vim.keymap.set('n', '<leader>pv', ':Neotree toggle<CR>', { silent = true })
-    vim.keymap.set('n', '<leader>pr', ':Neotree reveal<CR>', { silent = true })
 
     -- Custom icons for diagnostics
     vim.fn.sign_define('DiagnosticSignError', { text = ' ', texthl = 'DiagnosticSignError' })

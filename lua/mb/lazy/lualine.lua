@@ -4,7 +4,8 @@ return {
   opts = {
     theme = 'material',
     sections = {
-      lualine_a = { 'mode', { 'buffers', max_length = vim.o.columns * 2 / 4 } },
+      lualine_a = { 'mode' },
+      lualine_b = { 'filename', 'diagnostics' },
       lualine_c = { 'searchcount', 'selectioncount' },
     },
   },
