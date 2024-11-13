@@ -1,6 +1,34 @@
 return {
   'folke/trouble.nvim',
-  opts = {}, -- for default options, refer to the configuration section for custom setup.
+  opts = {
+    preview = {
+      type = 'float',
+      relative = 'editor',
+      border = 'rounded',
+      title = 'Preview',
+      title_pos = 'center',
+      position = { 0, 0.5 },
+      size = { width = 0.6, height = 0.6 },
+      wo = {
+        wrap = true,
+        linebreak = true,
+        number = true,
+      },
+    },
+    modes = {
+      -- Customize the lsp_base mode
+      lsp_base = {
+        win = {
+          position = 'bottom',
+        },
+      },
+      symbols = {
+        win = {
+          position = 'bottom',
+        },
+      },
+    },
+  }, 
   cmd = 'Trouble',
   keys = {
     {
@@ -20,7 +48,7 @@ return {
     },
     {
       '<leader>cl',
-      '<cmd>Trouble lsp toggle focus=false win.position=right<cr>',
+      '<cmd>Trouble lsp toggle focus=false<cr>',
       desc = 'LSP Definitions / references / ... (Trouble)',
     },
     {
