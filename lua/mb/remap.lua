@@ -68,6 +68,9 @@ keymap('n', '<C-i>', '<C-i>zz')
 keymap('n', '{', '{zz')
 keymap('n', '}', '}zz')
 
+-- Select all
+keymap('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' })
+
 -- NOTE: Insert mode
 
 -- Press jk fast to exit insert mode
