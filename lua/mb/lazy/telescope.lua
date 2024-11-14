@@ -66,6 +66,10 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local lga_actions = require 'telescope-live-grep-args.actions'
     local trouble = require 'trouble.sources.telescope'
 
+    local default_lsp_picker_config = {
+      show_line = false, -- show results text (default: true)
+    }
+
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
     require('telescope').setup {
@@ -79,8 +83,15 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- },
       -- pickers = {}
       defaults = {
+        dynamic_preview_title = true,
+        layout_config = {
+          width = 0.9,
+          preview_width = 0.5,
+        },
         file_ignore_patterns = { 'node_modules' },
-        path_display = { 'tail', 'smart' },
+        path_display = {
+          'smart',
+        },
         mappings = {
           n = {
             ['<Tab>'] = focus_preview,
@@ -94,11 +105,20 @@ return { -- Fuzzy Finder (files, lsp, etc)
           },
         },
       },
+      pickers = {
+        lsp_references = default_lsp_picker_config,
+        lsp_incoming_calls = default_lsp_picker_config,
+        lsp_outgoing_calls = default_lsp_picker_config,
+        lsp_definitions = default_lsp_picker_config,
+        lsp_type_definitions = default_lsp_picker_config,
+        lsp_implementations = default_lsp_picker_config,
+      },
       extensions = {
         ['ui-select'] = {
           require('telescope.themes').get_dropdown(),
         },
         live_grep_args = {
+          disable_coordinates = true,
           auto_quoting = true,
           mappings = { -- extend mappings
             n = {
