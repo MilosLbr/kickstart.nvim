@@ -229,6 +229,7 @@ return {
         cssls = {
           root_dir = util.root_pattern 'tsconfig.base.json',
         },
+        pylsp = {},
         lua_ls = {
           -- cmd = {...},
           -- filetypes = { ...},
