@@ -181,10 +181,10 @@ return {
           root_dir = util.root_pattern '*.sln',
         },
         css_variables = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
         },
         -- angularls = {
-        --   root_dir = util.find_git_ancestor,
+        --   root_dir = util.root_pattern 'tsconfig.base.json',
         --
         --   on_init = function(client)
         --     -- Disable formatting
@@ -201,7 +201,7 @@ return {
         --   end,
         -- },
         ts_ls = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
           on_init = function(client)
             -- Disable formatting
             client.server_capabilities.document_formatting = false
@@ -214,20 +214,20 @@ return {
           end,
         },
         eslint = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
 
           on_init = function(client)
             client.config.settings.workingDirectory = { directory = client.config.root_dir }
           end,
         },
         cssmodules_ls = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
         },
         html = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
         },
         cssls = {
-          root_dir = util.find_git_ancestor,
+          root_dir = util.root_pattern 'tsconfig.base.json',
         },
         lua_ls = {
           -- cmd = {...},
