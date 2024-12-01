@@ -51,8 +51,14 @@ return {
     'nvim-treesitter/nvim-treesitter-context',
     opts = {},
     config = function()
+      local tsContext = require 'treesitter-context'
+
+      vim.keymap.set('n', '<leader>tt', function()
+        tsContext.toggle()
+      end, { silent = true, desc = '[T]S context [t]oggle' })
+
       vim.keymap.set('n', '[x', function()
-        require('treesitter-context').go_to_context(vim.v.count1)
+        tsContext.go_to_context(vim.v.count1)
       end, { silent = true, desc = 'Go to Conte[x]t' })
     end,
   },
