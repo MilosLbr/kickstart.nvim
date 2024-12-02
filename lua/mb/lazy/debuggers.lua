@@ -5,6 +5,7 @@ return {
     'nvim-neotest/nvim-nio',
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
+    'mfussenegger/nvim-dap-python',
   },
 
   config = function()
@@ -47,5 +48,10 @@ return {
     vim.keymap.set('n', '<C-S-F10>', function()
       dap.goto_() -- go to cursor
     end)
+
+    -- python
+    local debugpy_path = vim.fn.stdpath 'data' .. '\\mason\\packages\\debugpy\\venv\\Scripts\\python.exe'
+
+    require('dap-python').setup(debugpy_path)
   end,
 }

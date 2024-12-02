@@ -280,6 +280,7 @@ return {
       local ensure_installed_dap = { debugpy = {} }
       require('mason-nvim-dap').setup {
         ensure_installed = ensure_installed_dap,
+        automatic_installation = false,
       }
     end,
   },
