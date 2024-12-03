@@ -6,6 +6,7 @@ return {
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
+      { 'jay-babu/mason-nvim-dap.nvim' },
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -256,12 +257,12 @@ return {
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
+      local ensure_installed_lsp = vim.tbl_keys(servers or {})
+      vim.list_extend(ensure_installed_lsp, {
         'stylua', -- Used to format Lua code
         'prettierd',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup { ensure_installed = ensure_installed_lsp }
 
       require('mason-lspconfig').setup {
         handlers = {
@@ -274,6 +275,12 @@ return {
             require('lspconfig')[server_name].setup(server)
           end,
         },
+      }
+
+      local ensure_installed_dap = { debugpy = {} }
+      require('mason-nvim-dap').setup {
+        ensure_installed = ensure_installed_dap,
+        automatic_installation = true,
       }
     end,
   },

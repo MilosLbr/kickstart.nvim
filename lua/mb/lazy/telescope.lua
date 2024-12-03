@@ -68,6 +68,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     local default_lsp_picker_config = {
       show_line = false, -- show results text (default: true)
+      layout_config = {
+        preview_width = 0.5,
+      },
     }
 
     -- [[ Configure Telescope ]]
@@ -86,7 +89,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
         dynamic_preview_title = true,
         layout_config = {
           width = 0.9,
-          preview_width = 0.5,
         },
         file_ignore_patterns = { 'node_modules' },
         path_display = {
