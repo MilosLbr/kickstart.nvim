@@ -6,11 +6,13 @@ return {
     'williamboman/mason.nvim',
     'jay-babu/mason-nvim-dap.nvim',
     'mfussenegger/nvim-dap-python',
+    'theHamsta/nvim-dap-virtual-text',
   },
 
   config = function()
-    local dap, dapui = require 'dap', require 'dapui'
+    local dap, dapui, dap_virtual_text = require 'dap', require 'dapui', require 'nvim-dap-virtual-text'
     dapui.setup()
+    dap_virtual_text.setup {}
 
     -- auto open/close dap-ui on dap events
     dap.listeners.before.attach.dapui_config = function()
@@ -47,6 +49,9 @@ return {
     end)
     vim.keymap.set('n', '<C-S-F10>', function()
       dap.goto_() -- go to cursor
+    end)
+    vim.keymap.set('n', '<S-F9>', function()
+      dapui.eval(nil, { enter = true })()
     end)
 
     -- python
