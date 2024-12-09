@@ -9,6 +9,9 @@ return {
   },
 
   config = function()
+    vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', linehl = '', numhl = '' })
+    vim.fn.sign_define('DapStopped', { text = '▶️', texthl = '', linehl = '', numhl = '' })
+
     local dap, dapui = require 'dap', require 'dapui'
     dapui.setup()
 
@@ -50,8 +53,6 @@ return {
     end)
 
     -- python
-    local debugpy_path = vim.fn.stdpath 'data' .. '\\mason\\packages\\debugpy\\venv\\Scripts\\python.exe'
-
-    require('dap-python').setup(debugpy_path)
+    require('dap-python').setup()
   end,
 }
