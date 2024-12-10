@@ -71,6 +71,10 @@ keymap('n', '}', '}zz')
 -- Select all
 keymap('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' })
 
+-- Replace start of the line keymaps
+keymap('n', '_', '0')
+keymap('n', '0', '_')
+
 -- NOTE: Insert mode
 
 -- Press jk fast to exit insert mode
