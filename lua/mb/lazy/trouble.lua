@@ -28,7 +28,7 @@ return {
         },
       },
     },
-  }, 
+  },
   cmd = 'Trouble',
   keys = {
     {
@@ -50,6 +50,11 @@ return {
       '<leader>cl',
       '<cmd>Trouble lsp toggle focus=false<cr>',
       desc = 'LSP Definitions / references / ... (Trouble)',
+    },
+    {
+      '<leader>ci',
+      '<cmd>Trouble lsp_incoming_calls focus=false<cr>',
+      desc = 'LSP incoming calls (Trouble)',
     },
     {
       '<leader>xL',

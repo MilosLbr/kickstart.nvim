@@ -68,6 +68,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     local default_lsp_picker_config = {
       show_line = false, -- show results text (default: true)
+      include_current_line = false,
+      include_declaration = false,
       layout_config = {
         preview_width = 0.5,
       },
