@@ -26,6 +26,7 @@ return {
       },
       view = {
         relativenumber = true,
+        adaptive_size = true,
       },
       renderer = {
         highlight_git = 'icon',
