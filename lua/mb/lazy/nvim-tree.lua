@@ -31,6 +31,9 @@ return {
       renderer = {
         highlight_git = 'icon',
         highlight_diagnostics = 'icon',
+        indent_markers = {
+          enable = true,
+        },
       },
     }
   end,

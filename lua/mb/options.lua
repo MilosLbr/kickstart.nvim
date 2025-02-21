@@ -86,3 +86,6 @@ vim.opt.ignorecase = true
 
 -- Autoreload file that is changed outside of Neovim
 vim.opt.autoread = true
+
+-- Shada file settings - vim history (oldfiles)
+vim.opt.shada = "!,'30,<50,s10,h"
