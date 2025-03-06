@@ -9,6 +9,8 @@ return {
     local neogit = require 'neogit'
     neogit.setup {
       graph_style = 'unicode',
+      disable_line_numbers = false,
+      disable_relative_line_numbers = false,
     }
 
     vim.keymap.set('n', '<leader>g', function()
