@@ -32,8 +32,6 @@ return {
     config = function(_, opts)
       -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
-      vim.highlight.priorities.semantic_tokens = 95 -- Or any number lower than 100, treesitter's priority level
-
       -- Prefer git instead of curl in order to improve connectivity in some environments
       require('nvim-treesitter.install').prefer_git = true
       ---@diagnostic disable-next-line: missing-fields

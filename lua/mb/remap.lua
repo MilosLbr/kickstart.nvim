@@ -1,4 +1,4 @@
---  See `:help vim.keymap.set()`
+-- See `:help vim.keymap.set()`
 local keymap = vim.keymap.set
 
 -- NOTE: Normal mode
@@ -47,6 +47,10 @@ keymap('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
 keymap('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 keymap('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 keymap('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Save all
+keymap('n', '<C-s>', ':wa<CR>', { noremap = false, silent = true })
+keymap('i', '<C-s>', '<Esc>:wa<CR>', { noremap = false, silent = true })
 
 -- Resize with arrows
 keymap('n', '<C-Up>', ':resize -2<CR>', { silent = true })

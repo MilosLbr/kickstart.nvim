@@ -29,6 +29,9 @@ return {
     -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
     -- - sd'   - [S]urround [D]elete [']quotes
     -- - sr)'  - [S]urround [R]eplace [)] [']
+    -- Note: if 'timeoutlen' is low enough to cause occasional usage of |s| key
+    -- (that deletes character under cursor), disable it with the following call:
+    vim.keymap.set({ 'n', 'x' }, 's', '<Nop>')
     require('mini.surround').setup()
 
     -- ... and there is more!

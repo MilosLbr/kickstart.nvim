@@ -11,6 +11,24 @@ return {
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
+      local c = require('vscode.colors').get_colors()
+      require('vscode').setup {
+        group_overrides = {
+          -- global
+          ['@lsp.type.enum'] = { fg = '#b8d7a3' },
+          ['@lsp.type.enumMember'] = { fg = '#dcdcdc' },
+          -- c-sharp
+          ['@lsp.type.property.cs'] = { fg = '#dcdcdc' },
+          ['@lsp.type.interface.cs'] = { fg = '#b8d7a3' },
+          ['@lsp.type.namespace.cs'] = { fg = '#dcdcdc' },
+          ['@lsp.type.keyword.cs'] = { link = 'NONE' },
+          ['@keyword.import.c_sharp'] = { link = '@keyword' },
+          -- typescript
+          ['@lsp.typemod.variable.readonly.typescript'] = { link = 'NONE' },
+          ['@lsp.typemod.property.readonly.typescript'] = { link = 'NONE' },
+        },
+      }
+
       vim.cmd [[colorscheme vscode]]
 
       -- You can configure highlights by doing something like:
