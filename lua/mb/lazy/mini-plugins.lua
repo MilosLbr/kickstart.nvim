@@ -48,7 +48,7 @@ return {
 
     -- Instead of `'f'` use id of textobject you'd like to move.
     -- For more info see `:h MiniAi.move_cursor()`.
-    map_ai_move('[m', 'f', 'prev', 'Jump to prev function')
-    map_ai_move(']m', 'f', 'next', 'Jump to next function')
+    map_ai_move('[m', 'f', 'cover_or_prev', 'Jump to prev function')
+    map_ai_move(']m', 'f', 'cover_or_next', 'Jump to next function')
   end,
 }
