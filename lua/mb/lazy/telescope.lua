@@ -63,6 +63,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       vim.cmd(string.format('noautocmd lua vim.api.nvim_set_current_win(%s)', winid))
     end
 
+    local actions = require 'telescope.actions'
     local lga_actions = require 'telescope-live-grep-args.actions'
     local trouble = require 'trouble.sources.telescope'
 
@@ -101,6 +102,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
             ['<Tab>'] = focus_preview,
             ['<C-q>'] = trouble.open,
             ['<A-q>'] = trouble.open,
+            ['CR'] = actions.select_default + actions.center,
           },
           i = {
             ['<Tab>'] = focus_preview,
