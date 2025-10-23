@@ -72,6 +72,9 @@ keymap('n', '<C-i>', '<C-i>zz')
 keymap('n', '{', '{zz')
 keymap('n', '}', '}zz')
 
+-- Increment and decrement (decrement is <C-x> as is by default)
+keymap('n', '<C-z>', '<C-a>', { desc = 'Increment number under cursor' })
+
 -- Select all
 keymap('n', '<C-a>', 'gg<S-v>G', { desc = 'Select all' })
 
