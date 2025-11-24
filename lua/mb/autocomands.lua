@@ -31,12 +31,3 @@ vim.api.nvim_create_autocmd('User', {
     vim.wo.linebreak = true
   end,
 })
-
--- center the line under cursor on Buffer enter
-vim.api.nvim_create_autocmd('BufEnter', {
-  callback = function()
-    vim.schedule(function()
-      vim.cmd 'normal! zz'
-    end)
-  end,
-})
